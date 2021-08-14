@@ -14,16 +14,6 @@ class OrderFactory extends Factory
      */
     protected $model = Order::class;
 
-
-    public function active()
-    {
-        return $this->state(function (array $attributes) {
-            return [
-                'order_status' => 'active',
-            ];
-        });
-    }
-
     /**
      * Define the model's default state.
      *
@@ -33,7 +23,7 @@ class OrderFactory extends Factory
     {
         return [
             'order_date' => date('Y-m-d'),
-            'order_status' => $this->faker->randomElement(['active', 'cancelled'])
+            'order_status' => 'active'
         ];
     }
 }

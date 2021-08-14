@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\OrderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,7 +15,13 @@ use App\Http\Controllers\CustomerController;
 |
 */
 
-Route::get('/', [CustomerController::class, 'index'])->name('home');
+Route::get('/', [CustomerController::class, 'customers'])->name('home');
+
+Route::get('/customer/{id}', [CustomerController::class, 'customer'])->name("customer");
+
+Route::get('/order/{id}', [OrderController::class, 'order'])->name("order");
+
+Route::get('/cancel-order/{id}', [OrderController::class, 'cancelOrder'])->name("cancel-order");
 
 // Route::get('/', function () {
 //     return view('welcome');

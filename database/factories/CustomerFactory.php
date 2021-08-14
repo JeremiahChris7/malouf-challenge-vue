@@ -30,7 +30,7 @@ class CustomerFactory extends Factory
             'last_name' => $lastName,
             'email' => strtolower($firstName) . "." . strtolower($lastName) . "@gmail.com",
             'phone_number' => $this->faker->numerify('(###) ###-####'),
-            'address' => str_replace("\n", ' ', $this->faker->address())
+            'address' => $this->faker->address()
         ];
     }
 }
