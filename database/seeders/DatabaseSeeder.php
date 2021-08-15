@@ -21,7 +21,10 @@ class DatabaseSeeder extends Seeder
         // Create 15 random products
         Product::factory()->count(15)->create();
 
+        // Create 15 random orders
         $this->call(OrderTableSeeder::class);
+
+        // Add 1 - 5 random products to each order
         $this->call(OrderProductTableSeeder::class);
     }
 }

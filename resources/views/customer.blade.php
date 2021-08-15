@@ -48,7 +48,7 @@
                                     <a class="btn btn-primary" href="{{ url('order/'.$order->id) }}" role="button">View</a>
                                 </td>
                                 <td>
-                                    <a class="btn btn-primary" href="{{ url('cancel-order/'.$order->id) }}" role="button" onclick="return confirm('Are you sure you want to cancel this order?')">Cancel</a>
+                                    <a class="btn btn-danger" href="{{ url('cancel-order/'.$order->id) }}" role="button" onclick="return confirm('Are you sure you want to cancel this order?')">Cancel</a>
                                 </td>
                             </tr>
                             @endforeach

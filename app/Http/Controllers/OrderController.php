@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Order;
+use App\Models\Product;
 
 class OrderController extends Controller
 {
@@ -11,11 +12,13 @@ class OrderController extends Controller
     {
         $order = Order::findOrFail($id);
         $customer = $order->customer;
-        $products = $order->products;
+        $orderProducts = $order->products;
+        $products = Product::all();
 
         return view('order', [
             'order' => $order,
             'customer' => $customer,
+            'orderProducts' => $orderProducts,
             'products' => $products
         ]);
     }
@@ -28,5 +31,37 @@ class OrderController extends Controller
         $order->save();
 
         return redirect()->route('customer', ['id' => $order->customer_id]);
+    }
+
+    public function removeProduct($orderId, $productId)
+    {
+        $order = Order::findOrFail($orderId);
+        $order->products()->detach($productId);
+
+        $total = 0;
+        foreach($order->products as $product) {
+            $total += $product->price;
+        }
+        $order->total_value = $total;
+
+        $order->save();
+
+        return redirect()->route('order', ['id' => $order->id]);
+    }
+
+    public function addProduct($orderId, $productId)
+    {
+        $order = Order::findOrFail($orderId);
+        $order->products()->attach($productId);
+
+        $total = 0;
+        foreach($order->products as $product) {
+            $total += $product->price;
+        }
+        $order->total_value = $total;
+
+        $order->save();
+
+        return redirect()->route('order', ['id' => $order->id]);
     }
 }

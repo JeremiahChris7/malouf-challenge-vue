@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,6 +24,6 @@ Route::get('/order/{id}', [OrderController::class, 'order'])->name("order");
 
 Route::get('/cancel-order/{id}', [OrderController::class, 'cancelOrder'])->name("cancel-order");
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::get('remove-product/{orderId}/{productId}', [OrderController::class, 'removeProduct'])->name("remove-product");
+
+Route::get('add-product/{orderId}/{productId}', [OrderController::class, 'addProduct'])->name("add-product");
