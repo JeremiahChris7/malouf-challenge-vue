@@ -24,6 +24,6 @@ Route::get('/order/{id}', [OrderController::class, 'order'])->name("order");
 
 Route::get('/cancel-order/{id}', [OrderController::class, 'cancelOrder'])->name("cancel-order");
 
-Route::get('remove-product/{orderId}/{productId}', [OrderController::class, 'removeProduct'])->name("remove-product");
+Route::get('remove-product/{orderId}/{pivotId}', [OrderController::class, 'removeProduct'])->name("remove-product");
 
 Route::get('add-product/{orderId}/{productId}', [OrderController::class, 'addProduct'])->name("add-product");

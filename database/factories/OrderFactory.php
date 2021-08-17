@@ -22,7 +22,7 @@ class OrderFactory extends Factory
     public function definition()
     {
         return [
-            'order_date' => date('Y-m-d'),
+            'order_date' => $this->faker->dateTimeThisYear($max = 'now', $timezone = null),
             'order_status' => 'active'
         ];
     }

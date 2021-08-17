@@ -33,10 +33,10 @@ class OrderController extends Controller
         return redirect()->route('customer', ['id' => $order->customer_id]);
     }
 
-    public function removeProduct($orderId, $productId)
+    public function removeProduct($orderId, $pivotId)
     {
         $order = Order::findOrFail($orderId);
-        $order->products()->detach($productId);
+        $order->products()->wherePivot('id', '=', $pivotId)->detach();
 
         $total = 0;
         foreach($order->products as $product) {
