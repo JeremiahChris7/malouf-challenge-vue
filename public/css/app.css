@@ -1,58 +1,58 @@
 table {
-    border-radius: .25rem;
+  border-radius: 0.25rem;
 }
 
 .cell-first {
-    width: 175px;
+  width: 175px;
 }
 
 .cell-second {
-    width: 500px;
+  width: 500px;
 }
 
 .my-card {
-    width: 1200px;
-    margin: 50px auto;
+  width: 1200px;
+  margin: 50px auto;
 }
 
 .my-card h1 {
-    font-size: 30px;
-    margin-bottom: 0;
+  font-size: 30px;
+  margin-bottom: 0;
 }
 
 .my-card h2 {
-    font-size: 25px;
+  font-size: 25px;
 }
 
 .nav-item {
-    margin-left: 5px;
-    margin-top: 40px;
+  margin-left: 5px;
+  margin-top: 40px;
 }
 
 .order-card {
-    margin-top: 15px;
+  margin-top: 15px;
 }
 
 .cust-name {
-    font-size: 30px;
-    margin-bottom: 20px;
-    font-weight: 500;
+  font-size: 30px;
+  margin-bottom: 20px;
+  font-weight: 500;
 }
 
 .orders-note {
-    font-size: 20px;
-    text-align: center;
+  font-size: 20px;
+  text-align: center;
 }
 
 .card-body div {
-    float: left;
+  float: left;
 }
 
 .cancel-btn {
-    float: right;
-    margin-top: 353px;
+  float: right;
+  margin-top: 353px;
 }
 
 .right {
-    float: right;
+  float: right;
 }

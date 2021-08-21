@@ -9,10 +9,14 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="/css/app.css">
 </head>
 
 <body>
+    <div id="app">
+        <first-component foo="bar"></first-component>
+        <second-component foo="baz"></second-component>
+    </div>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="/">Malouf Challenge</a>
     </nav>
@@ -45,6 +49,7 @@
             {!! $customers->links() !!}
         </div>
     </div>
+    <script src="/js/app.js"></script>
 </body>
 
 </html>
