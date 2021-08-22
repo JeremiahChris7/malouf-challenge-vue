@@ -16,7 +16,9 @@ use App\Http\Controllers\ProductController;
 |
 */
 
-Route::get('/', [CustomerController::class, 'customers'])->name('home');
+Route::view('/', 'home');
+
+Route::get('/customers', [CustomerController::class, 'customers']);
 
 Route::get('/customer/{id}', [CustomerController::class, 'customer'])->name("customer");
 

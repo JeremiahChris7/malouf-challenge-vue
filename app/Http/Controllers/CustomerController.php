@@ -10,9 +10,8 @@ class CustomerController extends Controller
 {
     public function customers()
     {
-        return view('home', [
-            'customers' => Customer::paginate(5)
-        ]);
+        $customers = Customer::all();
+        return response()->json($customers);
     }
 
     public function customer($id)
