@@ -1,6 +1,6 @@
 <template>
-    <div>second component, {{ greeting }}</div>
-    <div>Foo: {{ foo }}</div>
+  <div>second component, {{ greeting }}</div>
+  <div>Foo: {{ foo }}</div>
 </template>
 
 <script>

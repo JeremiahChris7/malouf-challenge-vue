@@ -11,6 +11,12 @@ class CustomerController extends Controller
     public function customers()
     {
         $customers = Customer::all();
+
+        foreach($customers as $customer) {
+            $customer->name = $customer->fullName();
+            $customer->numOrders = $customer->numOrders();
+        }
+
         return response()->json($customers);
     }
 

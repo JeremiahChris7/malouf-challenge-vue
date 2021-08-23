@@ -11,14 +11,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td class="cell-first">customer id</td>
-          <td class="cell-second">customer name</td>
-          <td>customer's number of orders</td>
-          <td>
-            <a class="btn btn-primary" href="customer_id" role="button">View</a>
-          </td>
-        </tr>
+        <CustomerRow v-for="customer in customers" :key="customer.id" :customer="customer" />
       </tbody>
     </table>
     <div class="d-flex justify-content-center">
@@ -28,22 +21,23 @@
 </template>
 
 <script>
-  import axios from 'axios'
+  import StoreService from '../services/StoreService.js'
+  import CustomerRow from '../components/CustomerRow.vue'
 
   export default {
     name: 'Home',
+    components: {
+        CustomerRow
+    },
     data() {
-        return {
-            customers: null
-        }
+      return {
+        customers: null
+      }
     },
     created() {
-      axios
-        .get(
-          'http://malouf-vue.test/customers'
-        )
+      StoreService.getCustomers()
         .then(response => {
-          console.log('customers:', response.data)
+          this.customers = response.data
         })
         .catch(error => {
           console.log(error)
